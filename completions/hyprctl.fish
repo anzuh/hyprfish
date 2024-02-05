@@ -1,33 +1,12 @@
-complete -c hyprctl -a "activewindow" -x
-complete -c hyprctl -a "activeworkspace" -x
-complete -c hyprctl -a "binds" -x
-complete -c hyprctl -a "clients" -x
-complete -c hyprctl -a "cursorpos" -x
-complete -c hyprctl -a "decorations" -x
-complete -c hyprctl -a "devices" -x
-complete -c hyprctl -a "dispatch" -x
-complete -c hyprctl -a "getoption" -x
-complete -c hyprctl -a "globalshortcuts" -x
-complete -c hyprctl -a "hyprpaper" -x
-complete -c hyprctl -a "instances" -x
-complete -c hyprctl -a "keyword" -x
-complete -c hyprctl -a "kill" -x
-complete -c hyprctl -a "layers" -x
-complete -c hyprctl -a "layouts" -x
-complete -c hyprctl -a "monitors" -x
-complete -c hyprctl -a "notify" -x
-complete -c hyprctl -a "plugin" -x
-complete -c hyprctl -a "reload" -x
-complete -c hyprctl -a "setcursor" -x
-complete -c hyprctl -a "seterror" -x
-complete -c hyprctl -a "setprop" -x
-complete -c hyprctl -a "splash" -x
-complete -c hyprctl -a "switchxkblayout" -x
-complete -c hyprctl -a "version" -x
-complete -c hyprctl -a "workspacerules" -x
-complete -c hyprctl -a "workspaces" -x
+set -l commands activewindow activeworkspace binds clients cursorpos decorations devices dispatch getoption globalshortcuts hyprpaper instances keyword kill layers layouts monitors notify plugin reload setcursor seterror setprop splash switchxkblayout version workspacerules workspaces
+set -l dispatchers exec execr pass killactive closewindow workspace movetoworkspace movetoworkspacesilent togglefloating fullscreen fakefullscreen dpms pin movefocus movewindow swapwindow centerwindow resizeactive moveactive resizewindowpixel movewindowpixel cyclenext swapnext focuswindow focusmonitor splitratio toggleopaque movecursortocorner movecursor renameworkspace exit forcerendererreload movecurrentworkspacetomonitor moveworkspacetomonitor swapactiveworkspaces bringeactivetotop alterzorder togglespecialworkspace focusurgentorlast togglegroup changegroupactive focuscurrentorlast lockgroups lockactivegroups moveintogroup moveoutofgroup movewindoworgroup movegroupwindow denywindowfromgroup setignoregrouplock global submap
 
-complete -c hyprctl -s i -l instance --description "use a specific instance. Can be either signature or index in hyprctl instances (0, 1, etc)"
-complete -c hyprctl -l batch --description "execute a batch of commands, separated by ';'"
-complete -c hyprctl -s j --description "output in JSON"
+
+complete -c hyprctl -f
+complete -c hyprctl -n "not __fish_seen_subcommand_from $commands" -a "$commands"
+complete -c hyprctl -n "__fish_seen_subcommand_from dispatch" -a "$dispatchers"
+
+complete -c hyprctl -s i -l instance -d "use a specific instance. Can be either signature or index in hyprctl instances (0, 1, etc)"
+complete -c hyprctl -l batch -d "execute a batch of commands, separated by ';'"
+complete -c hyprctl -s j -d "output in JSON"
 
