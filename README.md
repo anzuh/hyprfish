@@ -1,6 +1,6 @@
 # Hyprfish
 
-Basic completions for `hyprctl`
+Basic completions for [Hyprland](https://github.com/hyprwm/Hyprland)'s `hyprctl`
 
 PRs welcome.
 
